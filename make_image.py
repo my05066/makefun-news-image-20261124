@@ -72,10 +72,15 @@ def sea(draw):
         draw.line((x, 103, x + 16, 103), fill="#718894", width=2)
 
     for x, y in [(126, 142), (238, 165), (413, 153)]:
-        draw.line((x - 41, y + 8, x + 10, y + 2), fill="#94c1c4", width=2)
-        draw.polygon([(x, y - 5), (x + 27, y - 8), (x + 38, y - 4),
-                      (x + 23, y + 4), (x + 5, y + 5)], fill="#cad8d6")
-        draw.rectangle((x + 9, y - 8, x + 19, y - 4), fill="#6d939c")
+        draw.line([(x - 43, y + 11), (x - 21, y + 7), (x + 5, y + 2)],
+                  fill=WHITE, width=3)
+        draw.line((x - 29, y + 13, x + 5, y + 6), fill="#94c1c4", width=2)
+        draw.polygon([(x, y - 5), (x + 30, y - 5), (x + 42, y - 9),
+                      (x + 33, y + 4), (x + 5, y + 5)],
+                     fill="#101e2d", outline="#7996a1", width=2)
+        draw.rectangle((x + 11, y - 9, x + 24, y - 5), fill="#52707c")
+        draw.line((x + 18, y - 9, x + 18, y - 17), fill="#b0c3c9", width=2)
+        draw.line((x + 14, y - 17, x + 22, y - 17), fill="#b0c3c9", width=2)
 
     for outer, inner, color in [(43, 16, "#ec753d"), (25, 10, "#ffd08a")]:
         points = []
@@ -88,15 +93,18 @@ def sea(draw):
 
 def capitol(draw):
     draw.ellipse((192, 2, 282, 92), fill="#487fa5")
-    draw.rectangle((0, 77, 472, 89), fill="#386484")
-    draw.pieslice((201, 29, 273, 96), 180, 360, fill=WHITE)
-    draw.rectangle((231, 22, 243, 31), fill=WHITE)
-    draw.line((237, 13, 237, 25), fill=WHITE, width=3)
-    draw.rectangle((193, 62, 281, 68), fill=WHITE)
-    draw.rectangle((176, 70, 298, 75), fill="#cddce4")
-    for x in range(184, 293, 15):
-        draw.rectangle((x, 75, x + 5, 88), fill=WHITE)
-    draw.rectangle((167, 85, 307, 89), fill=WHITE)
+    draw.rectangle((0, 82, 472, 89), fill="#386484")
+    draw.pieslice((201, 20, 273, 80), 180, 360, fill=WHITE)
+    draw.rectangle((231, 14, 243, 23), fill=WHITE)
+    draw.line((237, 6, 237, 16), fill=WHITE, width=3)
+    draw.rectangle((190, 49, 284, 55), fill=WHITE)
+    draw.rectangle((160, 56, 314, 76), fill="#91afc5")
+    draw.rectangle((156, 53, 318, 58), fill=WHITE)
+    for x in range(167, 305, 17):
+        draw.rectangle((x, 59, x + 7, 75), fill=WHITE)
+    draw.rectangle((156, 76, 318, 79), fill=WHITE)
+    draw.rectangle((148, 80, 326, 83), fill="#cddce4")
+    draw.rectangle((140, 84, 334, 87), fill=WHITE)
 
 
 def chip(draw):
@@ -211,7 +219,8 @@ def main():
         draw.rectangle((x, y, x + 472, y + 199), outline=RULE)
         text_bottom = fit_text(draw, (x + 14, y + 100, x + 459, y + 155),
                                headline, BOLD, 30)
-        fit_text(draw, (x + 14, text_bottom + 9, x + 459, y + 190),
+        headline_gap = 5 if paint in (satellite, skyline) else 9
+        fit_text(draw, (x + 14, text_bottom + headline_gap, x + 459, y + 190),
                  subline, REGULAR, 18)
 
     draw.rectangle((32, 886, 991, 968), outline=RULE)
