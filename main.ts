@@ -1,4 +1,4 @@
-// Copy the bundled entry.png to MAKEFUN_OUTPUT_DIR, which defaults to /output.
+// Publish the bundled front page.
 import { copyFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
